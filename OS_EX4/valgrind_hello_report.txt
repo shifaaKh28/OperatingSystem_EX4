@@ -1,0 +1,72 @@
+==47876== Memcheck, a memory error detector
+==47876== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==47876== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==47876== Command: ./hello argument1 argument2
+==47876== 
+==47876== Conditional jump or move depends on uninitialised value(s)
+==47876==    at 0x109234: main (hello.c:10)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Use of uninitialised value of size 8
+==47876==    at 0x483F094: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Conditional jump or move depends on uninitialised value(s)
+==47876==    at 0x483F0D5: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Conditional jump or move depends on uninitialised value(s)
+==47876==    at 0x483F0DA: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Conditional jump or move depends on uninitialised value(s)
+==47876==    at 0x483F0DC: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Conditional jump or move depends on uninitialised value(s)
+==47876==    at 0x483F0EB: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Uninitialised value was created by a stack allocation
+==47876==    at 0x1091C9: main (hello.c:3)
+==47876== 
+==47876== Invalid write of size 2
+==47876==    at 0x1092AC: main (hello.c:14)
+==47876==  Address 0x4a53048 is 8 bytes inside a block of size 9 alloc'd
+==47876==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x10922A: main (hello.c:8)
+==47876== 
+==47876== Invalid read of size 1
+==47876==    at 0x483F0B2: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x109248: main (hello.c:11)
+==47876==  Address 0x4a53049 is 0 bytes after a block of size 9 alloc'd
+==47876==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x10922A: main (hello.c:8)
+==47876== 
+You entered: ./hello argument1 argument2
+==47876== 
+==47876== HEAP SUMMARY:
+==47876==     in use at exit: 57 bytes in 3 blocks
+==47876==   total heap usage: 4 allocs, 1 frees, 4,153 bytes allocated
+==47876== 
+==47876== 57 bytes in 3 blocks are definitely lost in loss record 1 of 1
+==47876==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==47876==    by 0x10922A: main (hello.c:8)
+==47876== 
+==47876== LEAK SUMMARY:
+==47876==    definitely lost: 57 bytes in 3 blocks
+==47876==    indirectly lost: 0 bytes in 0 blocks
+==47876==      possibly lost: 0 bytes in 0 blocks
+==47876==    still reachable: 0 bytes in 0 blocks
+==47876==         suppressed: 0 bytes in 0 blocks
+==47876== 
+==47876== For lists of detected and suppressed errors, rerun with: -s
+==47876== ERROR SUMMARY: 13 errors from 9 contexts (suppressed: 0 from 0)
