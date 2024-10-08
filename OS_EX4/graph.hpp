@@ -35,6 +35,9 @@ public:
      * @brief Displays the adjacency list of the graph.
      */
     void display() const;
+    
+/*get the degree of a vertex*/
+    int getDegree(int node) const;
 
 private:
     std::vector<std::list<int>> adjacencyList; ///< Adjacency list representation of the graph.
@@ -57,6 +60,8 @@ private:
      * @return True if the graph has an Eulerian circuit, false otherwise.
      */
     bool isEulerian();
+
+    
 };
 
 #endif
