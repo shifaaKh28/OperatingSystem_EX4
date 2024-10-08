@@ -1,0 +1,67 @@
+==19753== Helgrind, a thread error detector
+==19753== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==19753== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==19753== Command: ./race
+==19753== 
+==19753== ---Thread-Announcement------------------------------------------
+==19753== 
+==19753== Thread #4 was created
+==19753==    at 0x499DA23: clone (clone.S:76)
+==19753==    by 0x499DBA2: __clone_internal_fallback (clone-internal.c:64)
+==19753==    by 0x499DBA2: __clone_internal (clone-internal.c:109)
+==19753==    by 0x491053F: create_thread (pthread_create.c:297)
+==19753==    by 0x4911194: pthread_create@@GLIBC_2.34 (pthread_create.c:836)
+==19753==    by 0x4854975: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x1092C3: main (race.c:19)
+==19753== 
+==19753== ---Thread-Announcement------------------------------------------
+==19753== 
+==19753== Thread #3 was created
+==19753==    at 0x499DA23: clone (clone.S:76)
+==19753==    by 0x499DBA2: __clone_internal_fallback (clone-internal.c:64)
+==19753==    by 0x499DBA2: __clone_internal (clone-internal.c:109)
+==19753==    by 0x491053F: create_thread (pthread_create.c:297)
+==19753==    by 0x4911194: pthread_create@@GLIBC_2.34 (pthread_create.c:836)
+==19753==    by 0x4854975: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x1092C3: main (race.c:19)
+==19753== 
+==19753== ----------------------------------------------------------------
+==19753== 
+==19753== Possible data race during read of size 8 at 0x10C018 by thread #4
+==19753== Locks held: none
+==19753==    at 0x10920B: square (race.c:9)
+==19753==    by 0x4854B7A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x4910A93: start_thread (pthread_create.c:447)
+==19753==    by 0x499DA33: clone (clone.S:100)
+==19753== 
+==19753== This conflicts with a previous write of size 8 by thread #3
+==19753== Locks held: none
+==19753==    at 0x109215: square (race.c:9)
+==19753==    by 0x4854B7A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x4910A93: start_thread (pthread_create.c:447)
+==19753==    by 0x499DA33: clone (clone.S:100)
+==19753==  Address 0x10c018 is 0 bytes inside data symbol "accum"
+==19753== 
+==19753== ----------------------------------------------------------------
+==19753== 
+==19753== Possible data race during write of size 8 at 0x10C018 by thread #4
+==19753== Locks held: none
+==19753==    at 0x109215: square (race.c:9)
+==19753==    by 0x4854B7A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x4910A93: start_thread (pthread_create.c:447)
+==19753==    by 0x499DA33: clone (clone.S:100)
+==19753== 
+==19753== This conflicts with a previous write of size 8 by thread #3
+==19753== Locks held: none
+==19753==    at 0x109215: square (race.c:9)
+==19753==    by 0x4854B7A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==19753==    by 0x4910A93: start_thread (pthread_create.c:447)
+==19753==    by 0x499DA33: clone (clone.S:100)
+==19753==  Address 0x10c018 is 0 bytes inside data symbol "accum"
+==19753== 
+2870
+==19753== 
+==19753== Use --history-level=approx or =none to gain increased speed, at
+==19753== the cost of reduced accuracy of conflicting-access information
+==19753== For lists of detected and suppressed errors, rerun with: -s
+==19753== ERROR SUMMARY: 36 errors from 2 contexts (suppressed: 342 from 18)
