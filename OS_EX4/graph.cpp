@@ -61,6 +61,9 @@ void Graph::findEulerianCircuit() {
     std::cout << std::endl;
 }
 
+int Graph::getDegree(int node) const {
+    return adjacencyList[node].size();
+}
 bool Graph::isConnected() {
     std::vector<bool> visited(adjacencyList.size(), false);  // Vector to track visited nodes
     int startNode = -1;
