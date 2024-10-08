@@ -12,9 +12,18 @@
  */
 void generateRandomGraph(Graph& g, int numEdges, int numVertices) {
     for (int i = 0; i < numEdges; ++i) {
-        int node1 = rand() % numVertices;  // Generate a random node1
-        int node2 = rand() % numVertices;  // Generate a random node2
-        g.addEdge(node1, node2);  // Add an edge between node1 and node2
+        int node1 = rand() % numVertices;
+        int node2 = rand() % numVertices;
+        g.addEdge(node1, node2);
+    }
+
+    // Ensure all vertices have an even degree
+    for (int i = 0; i < numVertices; ++i) {
+        if (g.getDegree(i) % 2 != 0) {  // If vertex has an odd degree
+            // Add an edge to a random vertex to make its degree even
+            int node2 = rand() % numVertices;
+            g.addEdge(i, node2);
+        }
     }
 }
 
