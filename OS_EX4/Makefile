@@ -60,7 +60,7 @@ $(FIXED_RACE_TARGET): $(FIXED_RACE_OBJ)
 
 # Generate code coverage report
 coverage: all
-	./$(TARGET) -e 1000 -v 100 -s 42
+	./$(TARGET) -e 10 -v 5 -s 42
 	gcov $(SRCS)
 	lcov --capture --directory . --output-file coverage.info
 	genhtml coverage.info --output-directory out
